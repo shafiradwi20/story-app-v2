@@ -1,0 +1,18 @@
+# Jangan upload folder dependency
+node_modules/
+
+# Folder build/hasil bundle (jika ada)
+dist/
+build/
+
+# File konfigurasi dan log yang tidak perlu di-upload
+*.log
+npm-debug.log*
+
+# Folder cache
+.cache/
+.vscode/
+.DS_Store
+
+# Jangan upload file sistem
+Thumbs.db

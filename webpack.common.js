@@ -11,6 +11,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: './',
   },
   module: {
     rules: [
@@ -24,12 +25,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       excludeChunks: ['sw'],
+      publicPath: './',
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
+          from: path.resolve(__dirname, 'src/public/images'),
+          to: path.resolve(__dirname, 'dist/images'),
         },
       ],
     }),

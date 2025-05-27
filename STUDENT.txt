@@ -1,3 +1,4 @@
 Nama: Shafira Dwi Nur'Izzati
 ID Dicoding: shafira20
-URL Deployment: [Isi dengan URL deployment aplikasi setelah dideploy]
+URL Deployment: 
+https://shafiradwi20.github.io/story-app-v2/ & https://ornate-churros-d196b1.netlify.app/

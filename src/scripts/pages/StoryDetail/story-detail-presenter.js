@@ -1,4 +1,3 @@
-
 import { get } from '../../utils/indexeddb.js';
 
 export default class StoryDetailPresenter {
@@ -23,22 +22,22 @@ export default class StoryDetailPresenter {
         }
         
         // Fallback to API fetch
-        const response = await this.#model.getStoryById(id); // Panggil getStoryById
+        const response = await this.#model.getStoryById(id);
         
         if (!response.ok) {
           console.error('initialStoryDetails: response:', response);
-          this.#view.StoryDetailError(response.message); // Panggil StoryDetailError
+          this.#view.StoryDetailError(response.message);
           return;
         }
         
-        document.getElementById("stories-list-loading-container").style.display = "none"; // Sembunyikan loading
-        this.#view.StoryDetail(response.story); // Panggil StoryDetail
+        // Hide loading and show story detail
+        this.#view.StoryDetail(response.story);
+        
       } catch (error) {
         console.error('initialStoryDetails: error:', error);
-        this.#view.StoryDetailError('Failed to fetch stories.'); // Pesan error umum
+        this.#view.StoryDetailError('Failed to fetch stories.');
       } finally {
         this.#view.hideLoading();
       }
     }
-
-  }
+}

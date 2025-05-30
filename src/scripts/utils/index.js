@@ -94,10 +94,23 @@ export async function registerServiceWorker() {
     console.log('Service Worker API unsupported');
     return;
   }
- 
+    
   try {
-    const registration = await navigator.serviceWorker.register('/sw.bundle.js');
+    // Pastikan nama file SW sesuai dengan yang ada
+    const registration = await navigator.serviceWorker.register('/sw.js');
     console.log('Service worker telah terpasang', registration);
+    
+    // Handle updates
+    registration.addEventListener('updatefound', () => {
+      const newWorker = registration.installing;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          // New service worker installed, show update notification
+          console.log('New service worker available');
+        }
+      });
+    });
+    
   } catch (error) {
     console.log('Failed to install service worker:', error);
   }

@@ -6,6 +6,11 @@ import { BASE_URL } from './config';
 precacheAndRoute(self.__WB_MANIFEST);
 
 // Runtime caching
+// SPA fallback to index.html
+registerRoute(
+  new NavigationRoute(createHandlerBoundToURL('/index.html'))
+);
+
 registerRoute(
   ({ url }) => {
     return url.origin === 'https://fonts.googleapis.com' || url.origin === 'https://fonts.gstatic.com';
@@ -114,3 +119,4 @@ async function syncNewStories() {
     }
   }
 }
+

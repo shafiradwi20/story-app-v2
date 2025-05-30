@@ -97,7 +97,7 @@ export async function registerServiceWorker() {
     
   try {
     // Pastikan nama file SW sesuai dengan yang ada
-    const registration = await navigator.serviceWorker.register('/sw.js');
+    const registration = await navigator.serviceWorker.register('./sw.bundle.js');
     console.log('Service worker telah terpasang', registration);
     
     // Handle updates
